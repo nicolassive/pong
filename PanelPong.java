@@ -7,25 +7,23 @@ import javax.swing.*;
 public class PanelPong extends JPanel implements Runnable {
 	private static final long serialVersionUID = 1L;
 
-	// Position initialle X et Y de la balle, du joueur 1 et du joueur 2
-	private int  PosInitBalleX = 400, PosInitBalleY = 300;
-	private int largballe=20, HautBalle=20; // Largeur et hauteur de la balle
-	private int PosInitR1X = 0, PosInitR1Y = 200, PosInitR2X = 775, PosInitR2Y = 200;
-	private int largeurRaquette=20, HauteurRaquette=100;
-	private int PosScore1X =100, PosScore1Y = 20, PosScore2X = 600, PosScore2Y = 20;
-	private int ScoreGameOVer = 5;	
-	private int VitDroite= 5;
-	private int VitGauche= -5;
-	private int VitHaut= 5;
-	private int VitBas= -5;
+	private int  PosInitBalleX = 400, PosInitBalleY = 300; // Position initialle de la balle
+	private int largballe = 20, HautBalle = 20; // Largeur et hauteur de la balle
+	private int VitDroite= 5, VitGauche= -5, VitHaut= 5, VitBas= -5; // Vitesse de la balle
+	
+	private int PosInitR1X = 0, PosInitR1Y = 200, PosInitR2X = 775, PosInitR2Y = 200; // Position initialle des raquettes
+	private int largeurRaquette = 20, HauteurRaquette = 100; // Largeur et hauteur des raquettes
+	private int PosScore1X = 100, PosScore1Y = 20, PosScore2X = 600, PosScore2Y = 20; // Position des scores
+	
+	private int ScoreGameOVer = 5;	// Score pour gagner
+	private int ScoreJoueur1 = 0, ScoreJoueur2 = 0; // Score Initiaux
+	
 	Thread sincro;
 
+	Balle Balle1 = new Balle(largballe,HautBalle,PosInitBalleX,PosInitBalleY,VitDroite,VitGauche,VitHaut,VitBas);
 	Raquette Raquette1 = new Raquette(largeurRaquette,HauteurRaquette, PosInitR1X,PosInitR1Y,VitBas,VitHaut);
 	Raquette Raquette2 = new Raquette(largeurRaquette, HauteurRaquette, PosInitR2X, PosInitR2Y,VitBas,VitHaut);
-	Balle Balle1 = new Balle(largballe,HautBalle,PosInitBalleX,PosInitBalleY,VitDroite,VitGauche,VitHaut,VitBas);
-
-	// Scores
-	int ScoreJoueur1=0, ScoreJoueur2=0;
+	
 	//boolean joueur1FlagHaut,player1FlagBas, joueur2FlagHaut, player2FlagAba;
 	boolean jeux, gameOver;
 
@@ -99,7 +97,7 @@ public class PanelPong extends JPanel implements Runnable {
 			Raquette2.setflagBas(true);
 			break;
 		}
-	} //COUCOU
+	}
 
 	public void run(){
 		while(true){
