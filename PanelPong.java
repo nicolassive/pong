@@ -99,7 +99,7 @@ public class PanelPong extends JPanel implements Runnable {
 			Raquette2.setflagBas(true);
 			break;
 		}
-	}
+	} //COUCOU
 
 	public void run(){
 		while(true){
